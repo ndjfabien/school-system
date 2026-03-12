@@ -1,0 +1,416 @@
+:root {
+    --primary: #1e3a8a;       /* Blue-900 (Ubururu bukomeye bw'ishuri) */
+    --sidebar-bg: #1e293b;    /* Slate-800 (Inyuma ha sidebar hijimye) */
+    --accent: r#06f646;        /* Amber (Ibara rya zahabu/umuhondo ku bintu byihariye) */
+    --card-bg: #ffffff;       /* Umweru usukuye ku makarita y'amashuri */
+    --button-hover: #1d4ed8;  /* Blue-700 (Igihe ukanze buto) */
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #f3f4f6;
+    display: flex;
+    min-height: 100vh;
+    transition: background 0.3s;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background: var(--sidebar-bg);
+    color: white;
+    position: fixed;
+    height: 100%;
+    padding: 25px 15px;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.25);
+    z-index: 100;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.profile-section { 
+    margin-bottom: 40px;
+}
+
+.profile-img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    object-fit: cover;
+    animation: float 3s ease-in-out infinite;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.profile-img:hover { transform: scale(1.1); }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.upload-label {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    background: var(--primary);
+    padding: 6px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.upload-label:hover { background: var(--button-hover); }
+
+.nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 14px;
+    display: block;
+    border-radius: 12px;
+    margin-top: 12px;
+    transition: all 0.3s;
+}
+.nav-links a:hover { 
+    background: linear-gradient(90deg, var(--primary), var(--button-hover));
+    color: white; 
+    transform: translateX(5px);
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 280px;
+    padding: 45px 35px 120px 35px;
+    flex: 1;
+    transition: all 0.3s;
+}
+
+/* Container Cards */
+.container {
+    background: var(--card-bg);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Slider */
+.slider {
+    width: 100%;
+    height: 320px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 45px;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.slides {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    animation: slide 12s infinite;
+}
+.slide {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2.2rem;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
+    transition: all 0.5s;
+}
+
+@keyframes slide {
+    0%, 30% { transform: translateX(0); }
+    33%, 63% { transform: translateX(-33.33%); }
+    66%, 100% { transform: translateX(-66.66%); }
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+/* Inputs & Buttons */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 5px rgba(79,70,229,0.5);
+}
+
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+button:hover {
+    background: var(--button-hover);
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--button-hover));
+    color: rgb(7, 0, 0);
+    padding: 18px;
+    text-align: center;
+    font-size: 0.95rem;
+    z-index: 200;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+}
+/* Iyi niyo ituma akaziga kazunguruka */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(219, 234, 3, 0.1);
+    border-left-color: #4a03bd; /* Ibara rya system yawe */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Kuringaniza buto na inputs */
+#loginForm input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#loginBtn {
+    width: 100%;
+    padding: 12px;
+    background: #4a03bd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+/* Container */
+.container{
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Title */
+.container h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1f2937;
+}
+
+/* Form styling */
+form{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+/* Label */
+form label{
+    font-weight: 600;
+    color: #374151;
+}
+
+/* Select box */
+form select{
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    outline: none;
+    font-size: 14px;
+}
+
+/* Button */
+form button{
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form button:hover{
+    background: #1d4ed8;
+}
+
+/* Grid for results */
+.form-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 15px;
+}
+
+/* Card */
+.card{
+    background: #f9fafb;
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.card:hover{
+    transform: translateY(-3px);
+}
+
+/* --- About Page Styles (Unified Grid Version) --- */
+:root {
+    --primary: #4a03bd;
+    --secondary: #6c63ff;
+    --bg-card: #ffffff;
+    --text-main: #2d3436;
+    --text-muted: #636e72;
+}
+
+.about-page {
+    background: var(--bg-card);
+    padding: 60px 45px;
+    max-width: 950px;
+    margin: 40px auto;
+    color: var(--text-main);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    border-radius: 30px;
+    border: 1.5px solid #ececf3;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+}
+
+/* --- Titre --- */
+.about-page h2 {
+    font-size: 2.6em;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- Section Titles (H3) --- */
+.about-page h3 {
+    font-size: 1.5em;
+    color: var(--text-main);
+    margin-top: 45px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    border-bottom: 2px solid #f0f0f5;
+    padding-bottom: 10px;
+}
+
+/* --- IYI NI YO GRID IHUZA BYOSE (Unified Grid System) --- */
+/* Koresha iyi class ku bice byose: tech-grid, role-grid, na feature-grid */
+.tech-grid, .role-grid, .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Koresha iyi class ku bintu birimo: tech-item, role-item, na feature-item */
+.tech-item, .role-item, .feature-item {
+    background: #fff;
+    color: var(--primary);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: 700;
+    border: 2px solid #f0f0f5;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+/* Hover effect imwe kuri byose */
+.tech-item:hover, .role-item:hover, .feature-item:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(74, 3, 189, 0.15);
+    border-color: var(--primary);
+}
+
+/* Niba ufite ubusobanuro bugufi muri buri item (p) */
+.role-item p, .feature-item p {
+    font-size: 0.9em;
+    font-weight: 400;
+    margin-top: 8px;
+    opacity: 0.9;
+}
+
+/* --- Developer Card (Footer) --- */
+.developer-card {
+    margin-top: 60px;
+    background: #f8f9ff;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px dashed var(--primary);
+    text-align: center;
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 600px) {
+    .tech-grid, .role-grid, .feature-grid {
+        grid-template-columns: 1fr; /* Kuri telefone biba umurongo umwe */
+    }
+}
+
+
